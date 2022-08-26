@@ -22,7 +22,7 @@ interface PicturesKeyDao {
      * @see OnConflictStrategy.REPLACE
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveKeys(keys: List<PictureKeyEntity>)
+    suspend fun putKeys(keys: List<PictureKeyEntity>)
 
     /**
      * Delete pictures key
