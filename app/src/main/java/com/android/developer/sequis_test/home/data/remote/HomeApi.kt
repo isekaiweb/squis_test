@@ -8,5 +8,5 @@ interface HomeApi {
     @GET("list")
     suspend fun getPictures(
         @Query("page") page: Int,
-    ): PictureRes
+    ): List<PictureRes>
 }

@@ -10,7 +10,7 @@ import com.android.developer.sequis_test.core.data.local.entities.PictureKeyEnti
 import com.android.developer.sequis_test.home.data.remote.response.PictureRes
 
 class PictureRemoteMediator(
-    private val getPictures: suspend (Int) -> List<PictureRes>,
+    private val getPictures: (Int) -> List<PictureRes>,
     private val pictureDao: PictureDao,
     private val pictureKeyDao: PicturesKeyDao
 ) : RemoteMediator<Int, PictureEntity>() {
