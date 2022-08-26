@@ -2,6 +2,8 @@ package com.android.developer.sequis_test.core.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import com.android.developer.sequis_test.core.data.local.dao.PictureDao
 import com.android.developer.sequis_test.core.data.local.dao.PicturesKeyDao
 import com.android.developer.sequis_test.core.data.local.entities.PictureEntity
@@ -21,6 +23,7 @@ import com.android.developer.sequis_test.core.data.local.entities.PictureKeyEnti
     version = 1,
     exportSchema = true
 )
+@TypeConverters(PictureConverter::class)
 abstract class PicturesDb : RoomDatabase() {
 
     /**

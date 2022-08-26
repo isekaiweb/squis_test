@@ -2,7 +2,10 @@ package com.android.developer.sequis_test.core.di
 
 import android.app.Application
 import androidx.room.Room
+import com.android.developer.sequis_test.core.data.local.PictureConverter
 import com.android.developer.sequis_test.core.data.local.PicturesDb
+import com.android.developer.sequis_test.core.util.GsonParser
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,8 +25,9 @@ object DataBaseModule {
     @Provides
     @Singleton
     fun provideDataBase(app: Application): PicturesDb =
-        Room.databaseBuilder(app, PicturesDb::class.java, "pictures_db")
-            .fallbackToDestructiveMigration()
+        Room.databaseBuilder(app, PicturesDb::class.java, "pictures_db").addTypeConverter(
+            PictureConverter(GsonParser(Gson()))
+        ).fallbackToDestructiveMigration()
             .build()
 
 
