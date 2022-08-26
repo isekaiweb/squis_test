@@ -8,6 +8,8 @@ import com.android.developer.sequis_test.core.data.local.dao.PicturesKeyDao
 import com.android.developer.sequis_test.core.data.local.entities.PictureEntity
 import com.android.developer.sequis_test.core.data.local.entities.PictureKeyEntity
 import com.android.developer.sequis_test.home.data.remote.response.PictureRes
+import retrofit2.HttpException
+import java.io.IOException
 
 class PictureRemoteMediator(
     private val getPictures: (Int) -> List<PictureRes>,
@@ -63,7 +65,9 @@ class PictureRemoteMediator(
             pictureDao.putPictures(pictures = pictureEntity)
             pictureKeyDao.putKeys(keys = key)
             MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
-        } catch (e: Exception) {
+        } catch (e: HttpException) {
+            MediatorResult.Error(Throwable(e.message))
+        } catch (e: IOException) {
             MediatorResult.Error(Throwable(e.message))
         }
 
