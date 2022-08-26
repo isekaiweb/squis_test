@@ -1,16 +1,192 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Sequis_test" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/brand_color</item>
+        <item name="colorPrimaryVariant">@color/brand_second_color</item>
+        <item name="colorOnPrimary">@color/secondary</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/unique_color</item>
+        <item name="colorSecondaryVariant">@color/unique_second_color</item>
+        <item name="colorOnSecondary">@color/secondary</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- error color. -->
+        <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/secondary</item>
+        <!--  Background color. -->
+        <item name="backgroundColor">@color/secondary</item>
+        <item name="colorOnBackground">@color/primary</item>
+
+        <!--   set default color for input type view -->
+        <item name="android:textColorHint">@color/grey</item>
+        <item name="android:editTextColor">@color/primary</item>
+    </style>
+
+    <style name="full_size">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="full_width">
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="full_height">
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="all_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+
+    <!--    image styles -->
+
+    <style name="rounded_10dp">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="rounded_5dp">
+        <item name="cornerSize">5dp</item>
+    </style>
+
+    <style name="img_stories">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="shapeAppearanceOverlay">@style/rounded_5dp</item>
+    </style>
+
+    <style name="img_story_detail">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">300dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <!--    text styles -->
+    <style name="text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!--    display3-->
+    <style name="text.display3">
+        <item name="android:textSize">30sp</item>
+        <item name="fontFamily">@font/lexend_semibold</item>
+    </style>
+
+    <style name="text.display3.secondary">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="text.display3.white">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--    h2 -->
+    <style name="text.h2">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/lexend_semibold</item>
+    </style>
+
+    <style name="text.h2.secondary">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="text.h2.primary">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="text.h2.error">
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+
+    <!--    h3 -->
+    <style name="text.h3">
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="text.h3.primary">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="text.h3.secondary">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <!--    body1 -->
+    <style name="text.body1">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/lexend_regular</item>
+    </style>
+
+    <style name="text.body1.primary">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="text.body1.secondary">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="text.body1.white_alpha_70">
+        <item name="android:textColor">@color/white_alpha_70</item>
+    </style>
+
+    <style name="text.body1.error">
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+    <!--    body2-->
+
+    <style name="text.body2">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/lexend_regular</item>
+    </style>
+
+    <style name="text.body2.secondary">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="text.body2.grey">
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="text.body2.primary">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="text.body2.error">
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+    <!--    caption -->
+    <style name="text.caption">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/lexend_light</item>
+    </style>
+
+    <style name="text.caption.primary">
+        <item name="android:textColor">@color/primary_alpha_80</item>
+    </style>
+
+    <!--  button -->
+    <style name="button">
+        <item name="android:layout_height">@dimen/dimen_48</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/lexend_medium</item>
+    </style>
+
+    <style name="button.full_width">
+        <item name="android:layout_width">0dp</item>
     </style>
 </resources>
