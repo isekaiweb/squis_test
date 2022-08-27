@@ -7,4 +7,8 @@
     <!--    home -->
     <string name="label_author">Author</string>
     <string name="desc_btn_up">scroll to top</string>
+
+    <!--    detail -->
+    <string name="desc_img_detail">img detail</string>
+    <string name="title_add_comment">add comment</string>
 </resources>
