@@ -9,11 +9,20 @@ data class CommentEntity(
     @PrimaryKey(autoGenerate = false)
     val createdAt: Long = System.currentTimeMillis(),
     val pictureId: String,
+    val author: String,
     val content: String,
 ) {
     fun toModel() = Comment(
-        pictureId,
-        content,
-        createdAt
+        createdAt = createdAt,
+        pictureId = pictureId,
+        author = author,
+        content = content
     )
 }
+
+fun Comment.backToEntity() = CommentEntity(
+    createdAt = createdAt,
+    pictureId = pictureId,
+    author = author,
+    content = content
+)
