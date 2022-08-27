@@ -15,7 +15,7 @@ interface PictureDao {
      * @return paging source
      * @see PagingSource
      */
-    @Query("SELECT * FROM PictureEntity")
+    @Query("SELECT * FROM PictureEntity ORDER BY id ASC")
     fun getPictures(): PagingSource<Int, PictureEntity>
 
 
@@ -34,14 +34,5 @@ interface PictureDao {
      * @see OnConflictStrategy.REPLACE
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun putPictures(pictures: List<PictureEntity>)
-
-    /**
-     * Delete selected list picture
-     *
-     * @param pictures list of [PictureEntity]
-     * @see Delete
-     */
-    @Delete
-    fun deletePictures(pictures: List<PictureEntity>)
+    suspend fun putPictures(pictures: List<PictureEntity>)
 }

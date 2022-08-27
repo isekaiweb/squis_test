@@ -13,7 +13,7 @@ interface PicturesKeyDao {
      * @see PictureKeyEntity
      */
     @Query("SELECT * FROM PictureKeyEntity WHERE id = :id")
-    suspend fun getKey(id: String): PictureKeyEntity
+    suspend fun getKey(id: String): PictureKeyEntity?
 
     /**
      * Save pictures key but if already saved then replace with the new one
@@ -23,14 +23,4 @@ interface PicturesKeyDao {
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun putKeys(keys: List<PictureKeyEntity>)
-
-    /**
-     * Delete pictures key
-     *
-     * @param keys list of entity picture key
-     * @see PictureKeyEntity
-     */
-    @Delete
-    suspend fun deleteKeys(keys: List<PictureKeyEntity>)
-
 }

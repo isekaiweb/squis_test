@@ -7,5 +7,5 @@ import javax.inject.Singleton
 
 @Singleton
 interface HomeRepo {
-    fun getPictures(lastSizeLoaded: Int): Flow<PagingData<Picture>>
+    fun getPictures(): Flow<PagingData<Picture>>
 }
