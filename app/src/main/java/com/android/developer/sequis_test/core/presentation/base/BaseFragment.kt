@@ -1,9 +1,9 @@
 package com.android.developer.sequis_test.core.presentation.base
 
 import android.os.Bundle
-import android.view.*
-import androidx.annotation.MenuRes
-import androidx.core.view.MenuProvider
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -82,23 +82,7 @@ abstract class BaseFragment<VB : ViewBinding, STATE : UIState, EVENT : UIEvent, 
     }
 
 
-    /**
-     * Method to set menu toolbar (optional)
-     **/
-    protected fun setMenuToolbar(
-        @MenuRes menuLayout: Int,
-        menuItemClickListener: (item: MenuItem) -> Boolean
-    ) {
-        requireActivity().addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(menuLayout, menu)
-            }
 
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return menuItemClickListener(menuItem)
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
 
     /**
      * Method to inflate view binding
