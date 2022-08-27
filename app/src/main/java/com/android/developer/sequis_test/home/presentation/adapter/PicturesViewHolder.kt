@@ -1,5 +1,6 @@
 package com.android.developer.sequis_test.home.presentation.adapter
 
+import androidx.core.view.ViewCompat
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,8 @@ class PicturesViewHolder(
 
     fun Picture.bind() {
         with(binding) {
+            ViewCompat.setTransitionName(img, "img_${id}")
+
             img.setImgUrl(url)
             tvAuthor.text = author
 
