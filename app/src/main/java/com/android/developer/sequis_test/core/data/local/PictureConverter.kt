@@ -4,7 +4,7 @@ import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.android.developer.sequis_test.core.data.local.entities.PictureEntity
 import com.google.gson.reflect.TypeToken
-import com.mr.binz.admin.main.data.util.JsonParser
+import com.android.developer.sequis_test.core.domain.util.JsonParser
 
 
 @ProvidedTypeConverter
