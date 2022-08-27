@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.android.developer.sequis_test.databinding.ActivityPicturesBinding
+import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,12 +27,15 @@ class PicturesActivity : AppCompatActivity() {
 
         val binding = ActivityPicturesBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
-        setSupportActionBar(binding.topAppBar)
-        setupNavController()
+        with(binding) {
+            setContentView(root)
+            setSupportActionBar(topAppBar)
+
+        }
+        setupNavController(binding.topAppBar)
     }
 
-    private fun setupNavController(){
+    private fun setupNavController(topAppBar: MaterialToolbar) {
 
         val navHostFragment: NavHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
@@ -40,6 +45,18 @@ class PicturesActivity : AppCompatActivity() {
         with(navController) {
             appBarConfiguration = AppBarConfiguration(graph)
             setupActionBarWithNavController(this, appBarConfiguration)
+        }
+
+        topAppBar.observeNavElements(navController)
+    }
+
+    private fun MaterialToolbar.observeNavElements(
+        navController: NavController,
+    ) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.detailFragment) {
+                setNavigationIcon(R.drawable.ic_back)
+            }
         }
     }
 
