@@ -45,14 +45,4 @@ object DataBaseModule {
     @Singleton
     fun providePictureDao(db: PicturesDb) = db.pictureDao()
 
-
-    /**
-     * Create provider method binding for [PicturesDb.pictureKeyDao]
-     *
-     * @see Provides
-     */
-    @Provides
-    @Singleton
-    fun providePictureKeyDao(db: PicturesDb) = db.pictureKeyDao()
-
 }
