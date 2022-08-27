@@ -10,23 +10,6 @@ data class PictureEntity(
     val id: String,
     val author: String,
     val url: String,
-    val comments: List<Comment> = emptyList()
 ) {
-    data class Comment(
-        @PrimaryKey(autoGenerate = true)
-        val id: String,
-        val author: String,
-        val content: String,
-        val createdAt: Long = System.currentTimeMillis()
-    )
-
-    private fun commentsToModel(): List<Picture.Comment> {
-        return comments.map { comment ->
-            Picture.Comment(comment.author, comment.content, comment.createdAt)
-        }
-    }
-
-    fun toModel(): Picture {
-        return Picture(id, author, url, commentsToModel())
-    }
+    fun toModel() = Picture(id, author, url)
 }

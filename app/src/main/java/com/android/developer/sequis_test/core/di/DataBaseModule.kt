@@ -3,10 +3,7 @@ package com.android.developer.sequis_test.core.di
 import android.app.Application
 import androidx.room.Room
 import com.android.developer.sequis_test.BuildConfig
-import com.android.developer.sequis_test.core.data.local.PictureConverter
 import com.android.developer.sequis_test.core.data.local.PicturesDb
-import com.android.developer.sequis_test.core.data.util.GsonParser
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,8 +27,6 @@ object DataBaseModule {
             app,
             PicturesDb::class.java,
             "${BuildConfig.APPLICATION_ID}_pictures_db"
-        ).addTypeConverter(
-            PictureConverter(GsonParser(Gson()))
         ).fallbackToDestructiveMigration()
             .build()
 
@@ -44,5 +39,14 @@ object DataBaseModule {
     @Provides
     @Singleton
     fun providePictureDao(db: PicturesDb) = db.pictureDao()
+
+    /**
+     * Create provider method binding for [PicturesDb.commentDao]
+     *
+     * @see Provides
+     */
+    @Provides
+    @Singleton
+    fun provideCommentDao(db: PicturesDb) = db.commentDao()
 
 }

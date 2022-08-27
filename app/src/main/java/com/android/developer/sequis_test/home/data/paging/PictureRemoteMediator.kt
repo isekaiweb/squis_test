@@ -61,9 +61,9 @@ class PictureRemoteMediator(
                 val prevPage = if (currentPage == 1) null else currentPage - 1
                 val nextPage = if (endOfPaginationReached) null else currentPage + 1
 
-                val keys = pictures.map { story ->
+                val keys = pictures.map { picture ->
                     PictureKeyEntity(
-                        id = story.id,
+                        id = picture.id,
                         prevPage = prevPage,
                         nextPage = nextPage
                     )

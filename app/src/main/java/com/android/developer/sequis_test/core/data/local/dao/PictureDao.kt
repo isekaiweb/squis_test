@@ -2,6 +2,7 @@ package com.android.developer.sequis_test.core.data.local.dao
 
 import androidx.paging.PagingSource
 import androidx.room.*
+import com.android.developer.sequis_test.core.data.local.relations.PictureEntityAndCommentsEntity
 import com.android.developer.sequis_test.core.data.local.entities.PictureEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -24,8 +25,9 @@ interface PictureDao {
      *
      * @return Flow of [PictureEntity]
      */
+    @Transaction
     @Query("SELECT * FROM PictureEntity WHERE id = :id")
-    fun getPicture(id: String): Flow<PictureEntity>
+    fun getPictureAndComments(id: String): Flow<PictureEntityAndCommentsEntity>
 
     /**
      * Save pictures but when pictures already saved replace with the new one

@@ -2,9 +2,10 @@ package com.android.developer.sequis_test.core.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
+import com.android.developer.sequis_test.core.data.local.dao.CommentDao
 import com.android.developer.sequis_test.core.data.local.dao.PictureDao
 import com.android.developer.sequis_test.core.data.local.dao.PicturesKeyDao
+import com.android.developer.sequis_test.core.data.local.entities.CommentEntity
 import com.android.developer.sequis_test.core.data.local.entities.PictureEntity
 import com.android.developer.sequis_test.core.data.local.entities.PictureKeyEntity
 
@@ -17,27 +18,34 @@ import com.android.developer.sequis_test.core.data.local.entities.PictureKeyEnti
 @Database(
     entities = [
         PictureEntity::class,
-        PictureKeyEntity::class
+        PictureKeyEntity::class,
+        CommentEntity::class
     ],
     version = 1,
     exportSchema = false
 )
-@TypeConverters(PictureConverter::class)
 abstract class PicturesDb : RoomDatabase() {
 
     /**
      * Get picture data access object
      *
-     * @return picture dao
-     * @see PictureDao
+     * @return [PictureDao]
      */
     abstract fun pictureDao(): PictureDao
 
     /**
      * Get picture key data access object
      *
-     * @return picture key dao
-     * @see PicturesKeyDao
+     * @return [PicturesKeyDao]
      */
     abstract fun pictureKeyDao(): PicturesKeyDao
+
+    /**
+     * Get comment data access object
+     *
+     * @return [CommentDao]
+     */
+    abstract fun commentDao(): CommentDao
+
+
 }
