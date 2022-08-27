@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import com.android.developer.sequis_test.R
 import com.android.developer.sequis_test.core.domain.model.Picture
 import com.android.developer.sequis_test.core.presentation.base.BaseFragment
 import com.android.developer.sequis_test.core.presentation.extentions.hide
@@ -21,8 +24,8 @@ import timber.log.Timber
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeState, HomeEvent, HomeViewModel>() {
 
     private val picturesAdapter: PicturesAdapter by lazy {
-        PicturesAdapter { id, extra ->
-
+        PicturesAdapter { id, extras ->
+            findNavController().navigate(HomeFragmentDirections.homeToDetail(id), navigatorExtras = extras)
         }
     }
 
@@ -30,7 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeState, HomeEvent, Hom
         PictureFooterAdapter(picturesAdapter::retry)
     }
 
-    override val viewModel: HomeViewModel by viewModels()
+    override val viewModel: HomeViewModel by hiltNavGraphViewModels(R.id.nav_graph)
 
     override fun initView() {
         postponeEnterTransition()
