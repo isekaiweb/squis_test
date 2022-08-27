@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loadingFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        shimmer:duration="700"
+        shimmer:layout_constraintBottom_toBottomOf="parent"
+        shimmer:layout_constraintEnd_toEndOf="parent"
+        shimmer:layout_constraintStart_toStartOf="parent"
+        shimmer:layout_constraintTop_toTopOf="parent"
+        shimmer:shimmer_auto_start="true">
+
+        <include
+            style="@style/full_width"
+            layout="@layout/picture_loading_layout" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/tvError"
+        style="@style/text.body1.error"
+        android:layout_marginHorizontal="@dimen/dimen_12"
+        android:layout_marginBottom="@dimen/dimen_8"
+        android:textAlignment="center"
+        android:visibility="gone"
+        shimmer:layout_constraintBottom_toTopOf="@+id/btnRetry"
+        shimmer:layout_constraintEnd_toEndOf="parent"
+        shimmer:layout_constraintStart_toStartOf="parent"
+        shimmer:layout_constraintTop_toTopOf="parent"
+        tools:text="lost connection"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_48"
+        android:text="@string/retry"
+        android:textColor="#fff"
+        android:visibility="gone"
+        shimmer:layout_constraintBottom_toBottomOf="parent"
+        shimmer:layout_constraintEnd_toEndOf="@+id/tvError"
+        shimmer:layout_constraintStart_toStartOf="@+id/tvError"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

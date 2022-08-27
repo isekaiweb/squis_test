@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dimen_12">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/error"
+        app:lottie_speed="1.5" />
+
+    <TextView
+        style="@style/text.h2.error"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_8"
+        android:text="@string/error"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/tvDescError"
+        style="@style/text.body2.primary"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimen_4"
+        android:textAlignment="center"
+        tools:text="error unknown" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_48"
+        android:layout_marginTop="@dimen/dimen_32"
+        android:text="@string/retry" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
