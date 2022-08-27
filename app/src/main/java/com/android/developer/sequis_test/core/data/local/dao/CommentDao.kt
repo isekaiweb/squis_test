@@ -13,5 +13,5 @@ interface CommentDao {
     suspend fun putComment(comment: CommentEntity): Long
 
     @Delete
-    suspend fun deleteComment(comment: CommentEntity)
+    suspend fun delComment(comment: CommentEntity)
 }
