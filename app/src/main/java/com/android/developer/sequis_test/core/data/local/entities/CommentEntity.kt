@@ -7,13 +7,13 @@ import com.android.developer.sequis_test.core.domain.model.Comment
 @Entity
 data class CommentEntity(
     @PrimaryKey(autoGenerate = false)
-    val createdAt: Long = System.currentTimeMillis(),
+    val createdAt: Long,
     val pictureId: String,
     val author: String,
     val content: String,
 ) {
     fun toModel() = Comment(
-        createdAt = createdAt,
+        currentTimeAt = createdAt,
         pictureId = pictureId,
         author = author,
         content = content
@@ -21,8 +21,8 @@ data class CommentEntity(
 }
 
 fun Comment.backToEntity() = CommentEntity(
-    createdAt = createdAt,
+    createdAt = currentTimeAt,
     pictureId = pictureId,
     author = author,
-    content = content
+    content = content,
 )
