@@ -28,5 +28,5 @@
 
     <color name="transparent">#00000000</color>
 
-    <color name="bg_color_main">#E4E4E4</color>
+    <color name="bg_color">#E4E4E4</color>
 </resources>
