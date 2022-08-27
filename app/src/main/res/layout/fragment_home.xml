@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/bg_color"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_color">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/mainLayout"
@@ -19,6 +19,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPictures"
             style="@style/full_size"
+            android:layoutAnimation="@anim/layout_animation"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/picture_layout" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
