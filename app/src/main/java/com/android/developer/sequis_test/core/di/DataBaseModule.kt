@@ -27,8 +27,7 @@ object DataBaseModule {
             app,
             PicturesDb::class.java,
             "${BuildConfig.APPLICATION_ID}_pictures_db"
-        ).fallbackToDestructiveMigration()
-            .build()
+        ).build()
 
 
     /**
