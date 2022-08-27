@@ -1,4 +1,4 @@
-package com.mr.binz.admin.main.data.util
+package com.android.developer.sequis_test.core.domain.util
 
 import java.lang.reflect.Type
 

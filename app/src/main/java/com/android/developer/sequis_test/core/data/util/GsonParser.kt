@@ -1,7 +1,7 @@
-package com.android.developer.sequis_test.core.util
+package com.android.developer.sequis_test.core.data.util
 
 import com.google.gson.Gson
-import com.mr.binz.admin.main.data.util.JsonParser
+import com.android.developer.sequis_test.core.domain.util.JsonParser
 import java.lang.reflect.Type
 
 class GsonParser(
