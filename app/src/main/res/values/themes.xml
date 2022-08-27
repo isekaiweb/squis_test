@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.Sequis_test" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Sequis_test" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/brand_color</item>
         <item name="colorPrimaryVariant">@color/brand_second_color</item>
@@ -52,20 +52,21 @@
         <item name="cornerSize">10dp</item>
     </style>
 
-    <style name="rounded_5dp">
-        <item name="cornerSize">5dp</item>
+    <style name="rounded_all_left_8dp">
+        <item name="cornerSizeBottomLeft">@dimen/dimen_8</item>
+        <item name="cornerSizeTopLeft">@dimen/dimen_8</item>
     </style>
 
-    <style name="img_stories">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">200dp</item>
+    <style name="pictures">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="shapeAppearanceOverlay">@style/rounded_5dp</item>
+        <item name="shapeAppearanceOverlay">@style/rounded_all_left_8dp</item>
     </style>
 
-    <style name="img_story_detail">
+    <style name="picture_detail">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">300dp</item>
+        <item name="android:layout_height">400dp</item>
         <item name="android:scaleType">fitXY</item>
     </style>
 
